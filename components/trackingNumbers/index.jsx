@@ -1,7 +1,7 @@
 import React from "react";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
-import CommentIcon from "@mui/icons-material/Comment";
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import ReportProblemOutlinedIcon from "@material-ui/icons/ReportProblemOutlined";
+import CommentIcon from "@material-ui/icons/Comment";
 import TextStyle from "../textStyle";
 import { COLORS } from "../../assets/styles";
 import { ContainerNumber, ContainerTracking } from "./styled";
@@ -16,7 +16,7 @@ const TrackingNumbers = () => {
         </TextStyle>
       </ContainerNumber>
       <ContainerNumber>
-        <WarningAmberIcon />
+        <ReportProblemOutlinedIcon />
         <TextStyle bold={400} color={COLORS.TEXT} type="h4" margin="0px 5px">
           2
         </TextStyle>

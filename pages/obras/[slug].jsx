@@ -2,7 +2,6 @@ import React from "react";
 import { COLORS } from "../../assets/styles";
 import Layout from "../../components/layout";
 import TextStyle from "../../components/textStyle";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import TrackingNumbers from "../../components/trackingNumbers";
 import InformationWork from "../../components/informationWork";
 import CommentsWork from "../../components/commentsWork";
@@ -10,6 +9,17 @@ import CommentsWork from "../../components/commentsWork";
 const WorkSlug = () => {
   return (
     <div>
+      <Layout backgorund={COLORS.RED}>
+        <TextStyle
+          bold={500}
+          color={COLORS.WHITE}
+          size="42px"
+          sizeMobile="30px"
+          margin="10px 0px"
+        >
+          OBRAS
+        </TextStyle>
+      </Layout>
       <Layout>
         <TextStyle bold={500} color={COLORS.RED} type="h3" margin="10px 0px">
           San Juan de Miraflores

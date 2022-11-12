@@ -1,7 +1,7 @@
 import React from "react";
 import { COLORS } from "../../assets/styles";
 import { Title } from "../titles";
-import LaunchIcon from "@mui/icons-material/Launch";
+import LaunchIcon from "@material-ui/icons/Launch";
 import TextStyle from "../textStyle";
 import { ContainerLink, ContainerResumen, ContainerSocial } from "./styled";
 import Link from "next/link";

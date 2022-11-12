@@ -1,11 +1,11 @@
 import React from "react";
 import { COLORS } from "../../assets/styles";
 import { Title } from "../titles";
-import CommentIcon from "@mui/icons-material/Comment";
-import { Avatar } from "@mui/material";
 import TextStyle from "../textStyle";
 import { ContainerCommentUser } from "./styled";
 import { stringAvatar } from "../../helpers/comments";
+import { Avatar } from "@material-ui/core";
+import CommentIcon from "@material-ui/icons/Comment";
 
 const data = [
   {
