@@ -1,7 +1,7 @@
 import React from "react";
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import ReportProblemOutlinedIcon from "@material-ui/icons/ReportProblemOutlined";
-import CommentIcon from "@material-ui/icons/Comment";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import ReportProblemOutlinedIcon from "@mui/icons-material/ReportProblemOutlined";
+import CommentIcon from "@mui/icons-material/Comment";
 import TextStyle from "../textStyle";
 import { COLORS } from "../../assets/styles";
 import { ContainerNumber, ContainerTracking } from "./styled";

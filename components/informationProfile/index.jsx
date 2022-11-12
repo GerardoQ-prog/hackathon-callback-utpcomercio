@@ -1,14 +1,14 @@
 import React from "react";
 import { stringAvatar } from "../../helpers/comments";
-import { Avatar, Hidden } from "@material-ui/core";
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import ReportProblemOutlinedIcon from "@material-ui/icons/ReportProblemOutlined";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import ReportProblemOutlinedIcon from "@mui/icons-material/ReportProblemOutlined";
 import Layout from "../layout";
 import TextStyle from "../textStyle";
 import { ContainerInfoReport } from "./styled";
 import { COLORS } from "../../assets/styles";
 import TabsProfile from "../tabsProfile";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
+import { Avatar, Hidden } from "@mui/material";
 
 const InformationProfile = () => {
   return (
