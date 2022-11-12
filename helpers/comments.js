@@ -18,8 +18,8 @@ export function stringToColor(string) {
 
 export function stringAvatar(name) {
   return {
-    sx: {
-      bgcolor: stringToColor(name),
+    style: {
+      background: stringToColor(name),
     },
     children: `${name.split(" ")[0][0]}`,
   };

@@ -2,7 +2,6 @@ import React from "react";
 import { COLORS } from "../../assets/styles";
 import Layout from "../../components/layout";
 import TextStyle from "../../components/textStyle";
-import VisibilityIcon from "@mui/icons-material/Visibility";
 import TrackingNumbers from "../../components/trackingNumbers";
 import InformationWork from "../../components/informationWork";
 import CommentsWork from "../../components/commentsWork";

@@ -1,22 +1,16 @@
-import { Avatar, Hidden, Tab, Tabs } from "@mui/material";
 import React from "react";
 import { stringAvatar } from "../../helpers/comments";
+import { Avatar, Hidden } from "@material-ui/core";
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import ReportProblemOutlinedIcon from "@material-ui/icons/ReportProblemOutlined";
 import Layout from "../layout";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import TextStyle from "../textStyle";
 import { ContainerInfoReport } from "./styled";
-import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import { COLORS } from "../../assets/styles";
 import TabsProfile from "../tabsProfile";
+import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 
 const InformationProfile = () => {
-  const [value, setValue] = React.useState(0);
-
-  const handleChange = (event, newValue) => {
-    setValue(newValue);
-  };
-
   return (
     <Layout>
       <Hidden mdDown>
@@ -50,7 +44,8 @@ const InformationProfile = () => {
               10
             </TextStyle>
             <TextStyle bold={400} type="h3">
-              <WarningAmberIcon style={{ marginBottom: -8 }} /> obras reportadas
+              <ReportProblemOutlinedIcon style={{ marginBottom: -8 }} /> obras
+              reportadas
             </TextStyle>
           </div>
         </ContainerInfoReport>
@@ -86,7 +81,8 @@ const InformationProfile = () => {
               10
             </TextStyle>
             <TextStyle bold={400} type="h3">
-              <WarningAmberIcon style={{ marginBottom: -8 }} /> obras reportadas
+              <ReportProblemOutlinedIcon style={{ marginBottom: -8 }} /> obras
+              reportadas
             </TextStyle>
           </div>
         </ContainerInfoReport>

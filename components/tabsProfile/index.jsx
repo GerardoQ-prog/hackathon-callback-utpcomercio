@@ -1,10 +1,11 @@
-import { Tab, Tabs } from "@mui/material";
 import React from "react";
-import NotificationsIcon from "@mui/icons-material/Notifications";
-import VisibilityIcon from "@mui/icons-material/Visibility";
-import AddReactionIcon from "@mui/icons-material/AddReaction";
-import { styled } from "@mui/material/styles";
+import NotificationsIcon from "@material-ui/icons/Notifications";
+import VisibilityIcon from "@material-ui/icons/Visibility";
+import AccessibilityIcon from "@material-ui/icons/Accessibility";
 import { COLORS } from "../../assets/styles";
+import TextStyle from "../textStyle";
+import { ContainerInformation } from "./styled";
+import { styled, Tab, Tabs } from "@material-ui/core";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -68,6 +69,15 @@ const TabsProfile = () => {
     })
   );
 
+  const notification = [
+    {
+      title: "Retraso de obra",
+      description:
+        "Creacion de algo para la nueva empresa demorara no se cuanto",
+      created: new Date(),
+    },
+  ];
+
   return (
     <>
       <AntTabs
@@ -79,10 +89,26 @@ const TabsProfile = () => {
       >
         <AntTab label="Notificaciones" icon={<NotificationsIcon />} />
         <AntTab label="Obras seguidas" icon={<VisibilityIcon />} />
-        <AntTab label="Actividad" icon={<AddReactionIcon />} />
+        <AntTab label="Actividad" icon={<AccessibilityIcon />} />
       </AntTabs>
       <TabPanel value={value} index={0}>
-        Item One
+        <div>
+          {notification.map((item, index) => {
+            return (
+              <ContainerInformation>
+                <TextStyle color={COLORS.BLUE} bold={900} type="h1">
+                  {item.title}
+                </TextStyle>
+                <TextStyle color={COLORS.TEXT} bold={400} type="h4">
+                  {item.created.getHours()}:{item.created.getMinutes()}
+                </TextStyle>
+                <TextStyle color={COLORS.TEXT} bold={400} type="h3">
+                  {item.description}
+                </TextStyle>
+              </ContainerInformation>
+            );
+          })}
+        </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
         Item Two
