@@ -20,7 +20,7 @@ export const popupOptions = {
 }
 
 export function addGeolocateToMap (map = {}, geolocate) {
-  map.addControl(geolocate);
+  map.addControl(geolocate, 'bottom-right');
 }
 
 export function addMarkersToMap (markers = [], map = {}, popup = {}) {

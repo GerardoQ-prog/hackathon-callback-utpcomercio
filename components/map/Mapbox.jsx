@@ -17,6 +17,7 @@ const Mapbox = ({ markers = [] }) => {
     const popup = new mapboxgl.Popup(popupOptions);
 
     map.current =  new mapboxgl.Map ({ 
+      attributionControl: false,
       container : mapContainer.current, 
       style :  'mapbox://styles/mapbox/dark-v10', 
       projection: 'globe',
