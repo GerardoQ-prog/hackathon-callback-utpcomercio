@@ -1,5 +1,6 @@
 import React from "react";
 import Mapbox from "../../components/map/Mapbox"
+import MapFilters from "../../components/mapFilters/MapFilters"
 
 const markers = [
   {
@@ -30,7 +31,12 @@ const markers = [
 ]
 
 const Map = () => {
-  return <Mapbox markers={markers} />;
+  return (
+    <>
+      <MapFilters />
+      <Mapbox markers={markers} />
+    </>
+  )
 };
 
 export default Map;
