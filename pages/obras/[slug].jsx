@@ -10,6 +10,17 @@ import CommentsWork from "../../components/commentsWork";
 const WorkSlug = () => {
   return (
     <div>
+      <Layout backgorund={COLORS.RED}>
+        <TextStyle
+          bold={500}
+          color={COLORS.WHITE}
+          size="42px"
+          sizeMobile="30px"
+          margin="10px 0px"
+        >
+          OBRAS
+        </TextStyle>
+      </Layout>
       <Layout>
         <TextStyle bold={500} color={COLORS.RED} type="h3" margin="10px 0px">
           San Juan de Miraflores
