@@ -24,3 +24,54 @@ a {
     background: black;
   }
 }
+
+.marker {
+  background-image: url("/img/mapbox-icon.png");
+  background-size: cover;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.mapboxgl-popup-close-button {
+  color: #222;
+}
+.popup__site_info {
+  color: #222;
+  font-family: 'Inter', "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.popup__site_info .mapboxgl-popup-content {
+  padding: 12px 0 0 !important;
+}
+
+
+
+.popup__site_info .mapboxgl-popup-content .cover {
+  max-height: 100px;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.popup__site_info .cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popup__site_info .description {
+  padding: 10px;
+}
+
+.popup__site_info .title {
+  font-size: 15px;
+  color: black;
+  font-weight: bold;
+  margin: 0;
+}
+
+.popup__site_info .subtitle {
+  font-size: 12px;
+  color: #444;
+  margin: 0;
+}
