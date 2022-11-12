@@ -1,11 +1,11 @@
 import React from "react";
-import NotificationsIcon from "@material-ui/icons/Notifications";
-import VisibilityIcon from "@material-ui/icons/Visibility";
-import AccessibilityIcon from "@material-ui/icons/Accessibility";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import AccessibilityIcon from "@mui/icons-material/Accessibility";
 import { COLORS } from "../../assets/styles";
 import TextStyle from "../textStyle";
 import { ContainerInformation } from "./styled";
-import { styled, Tab, Tabs } from "@material-ui/core";
+import { styled, Tab, Tabs } from "@mui/material";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;

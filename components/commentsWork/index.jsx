@@ -4,8 +4,8 @@ import { Title } from "../titles";
 import TextStyle from "../textStyle";
 import { ContainerCommentUser } from "./styled";
 import { stringAvatar } from "../../helpers/comments";
-import { Avatar } from "@material-ui/core";
-import CommentIcon from "@material-ui/icons/Comment";
+import CommentIcon from "@mui/icons-material/Comment";
+import { Avatar } from "@mui/material";
 
 const data = [
   {
@@ -28,7 +28,8 @@ const CommentsWork = () => {
   return (
     <div>
       <Title background={COLORS.RED} color={COLORS.WHITE}>
-        <CommentIcon style={{ marginRight: 10 }} /> Comentarios (12)
+        <CommentIcon style={{ marginRight: 10 }} fontSize="small" /> Comentarios
+        (12)
       </Title>
       {data.map((item, index) => {
         return (

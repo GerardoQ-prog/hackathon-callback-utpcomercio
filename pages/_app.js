@@ -1,6 +1,7 @@
 import { createGlobalStyle } from "styled-components";
 import "../styles/globals.css";
-import 'mapbox-gl/dist/mapbox-gl.css';
+import "mapbox-gl/dist/mapbox-gl.css";
+import CssBaseline from "@mui/material/CssBaseline";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -20,10 +21,10 @@ a {
 `;
 
 function MyApp({ Component, pageProps }) {
-
   return (
     <>
       <GlobalStyle />
+      <CssBaseline />
       <Component {...pageProps} />
     </>
   );
