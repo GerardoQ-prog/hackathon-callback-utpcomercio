@@ -1,21 +1,52 @@
 "use client"
 import * as React from 'react';
-import styled from "styled-components";
 import Logo from "../logo/Logo";
 import { IconButton, Autocomplete, TextField, RadioGroup, FormControlLabel, Radio, Typography } from '@mui/material';
 import { Menu  as MenuIcon } from '@mui/icons-material';
 import { COLORS } from "../../assets/styles";
 import { ContainerFilters, ContainerFilter, ContainerSearch, SidebarContainer } from "./styled";
+import { searchPlaces } from '../../services/search';
 
-const Search = () => {
+const Search = ({ onSearch = () => {} }) => {
+
+  const [ placeSelected, setPlaceSelected ] = React.useState(null)
+  const [ results, setResults ] = React.useState([])
+
+  let debounce = null
+  
+  const search = async (ev) => {
+    if(debounce) clearTimeout(debounce)
+    const text = ev.target.value
+    if(!text || text.length < 5) return
+    debounce = setTimeout(async () => {
+      const places = await searchPlaces({ text: text })
+      setResults(places)
+    }, 700)
+  }
+
   return (
     <ContainerSearch>
       <Autocomplete
         disablePortal
         id="combo-box-places"
-        options={[]}
+        options={results}
         sx={{ width: '100%' }}
-        renderInput={(params) => <TextField {...params} label="Escribe una palabra" />}
+        onInputChange={search}
+        filterOptions={(x) => x}
+        value={placeSelected}
+        onChange={(event, newValue) => {
+          setPlaceSelected(newValue);
+          newValue && onSearch(newValue)
+        }}
+        autoComplete
+        includeInputInList
+        filterSelectedOptions
+        getOptionLabel={(option) =>
+          typeof option === 'string' ? option : (option.place_name_es || option.place_name)
+        }
+        renderInput={
+          (params) => <TextField  {...params} label="Escribe una palabra" />
+        }
       />
     </ContainerSearch>
   )
@@ -38,19 +69,19 @@ const RadioTypes = () => {
   )
 }
 
-const SidebarFilters = ({ ...props }) => {
+const SidebarFilters = ({ onSearch = () => {}, ...props }) => {
   return (
     <SidebarContainer {...props}>
       <Typography color={'#000'} variant="h5" component="h5" fontSize={14} fontWeight={'600'} marginBottom={1.5}>
         Busca y Filtra el contenido del Mapa
       </Typography>
-      <Search />
+      <Search onSearch={onSearch} />
       <RadioTypes />
     </SidebarContainer> 
   )
 }
 
-const Filters = () => {
+const Filters = ({ onMapSearch = () => {} }) => {
   const [ menu, toggleMenu ] = React.useState(false)
 
   return (
@@ -58,16 +89,16 @@ const Filters = () => {
       <IconButton onClick={() => toggleMenu(!menu) }>
         <MenuIcon htmlColor={COLORS.WHITE} />
       </IconButton>
-      <SidebarFilters className={ menu && 'open' } />
+      <SidebarFilters onSearch={onMapSearch} className={ menu && 'open' } />
     </ContainerFilter>
   )
 }
 
-const MapFilters = () => {
+const MapFilters = ({ onMapSearch = () => {} }) => {
   return (
     <ContainerFilters>
       <Logo />
-      <Filters />
+      <Filters onMapSearch={onMapSearch} />
     </ContainerFilters>
   )
 }
