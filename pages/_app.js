@@ -2,6 +2,8 @@ import { createGlobalStyle } from "styled-components";
 import "../styles/globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import CssBaseline from "@mui/material/CssBaseline";
+import { useEffect } from "react";
+import * as uuid from "uuid"
 
 const GlobalStyle = createGlobalStyle`
 
@@ -20,7 +22,14 @@ a {
 }
 `;
 
+
 function MyApp({ Component, pageProps }) {
+  
+  useEffect(() => {
+    console.log(uuid);
+    globalThis.localStorage.setItem("session_id", uuid.v4())
+  }, [])
+
   return (
     <>
       <GlobalStyle />
