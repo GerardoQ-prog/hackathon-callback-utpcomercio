@@ -1,5 +1,23 @@
 import styled from "styled-components";
-import { COLORS } from "../../assets/styles";
+import { COLORS, SIZES } from "../../assets/styles";
+
+export const ContainerNotification = styled.div`
+  background: ${COLORS.WHITE_2};
+  color: ${COLORS.TEXT};
+  font-size: 20px;
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  padding: 5px;
+  border-radius: 10px;
+`;
+
+export const ContainerPresentation = styled.div`
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 export const ContainerLogo = styled.div`
   display: flex;
@@ -14,9 +32,13 @@ export const ContainerLinks = styled.div`
     color: ${COLORS.WHITE};
     font-weight: 700;
   }
+  @media ${SIZES.TABLET} {
+    display: none;
+  }
 `;
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
+  padding: 0px 20px;
 `;
