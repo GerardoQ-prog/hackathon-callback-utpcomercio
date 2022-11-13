@@ -1,7 +1,10 @@
 import axios from "axios"
 
 const filterPeruPlaces = (places = []) => {
-  return places.filter(place => place.context[4] &&  place.context[4].short_code == 'pe')
+  return places.filter(place => {
+    const lastContext = place.context[place.context.length - 1]
+    return lastContext &&  lastContext.short_code == 'pe'
+  })
 }
 
 export const searchPlaces = async ({ text = '' }) => {
