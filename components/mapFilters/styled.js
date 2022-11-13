@@ -43,7 +43,7 @@ export const SidebarContainer = styled.div`
   label, span.MuiTypography-root {
     color: ${COLORS.TEXT} !important;
     font-size: 13px;
-    line-height: 1;
+    line-height: 1.1;
   }
   .MuiInputBase-input  {
     padding: 0 !important;
