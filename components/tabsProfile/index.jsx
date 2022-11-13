@@ -6,6 +6,12 @@ import { COLORS } from "../../assets/styles";
 import TextStyle from "../textStyle";
 import { ContainerInformation } from "./styled";
 import { styled, Tab, Tabs } from "@mui/material";
+import {
+  followerWorks,
+  notificationCiudadano,
+  notificationMunicipalidad,
+} from "../../api/profile";
+import BoxWork from "../boxWork";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -89,32 +95,47 @@ const TabsProfile = () => {
       >
         <AntTab label="Notificaciones" icon={<NotificationsIcon />} />
         <AntTab label="Obras seguidas" icon={<VisibilityIcon />} />
-        <AntTab label="Actividad" icon={<AccessibilityIcon />} />
       </AntTabs>
       <TabPanel value={value} index={0}>
         <div>
-          {notification.map((item, index) => {
-            return (
-              <ContainerInformation>
-                <TextStyle color={COLORS.BLUE} bold={900} type="h1">
-                  {item.title}
-                </TextStyle>
-                <TextStyle color={COLORS.TEXT} bold={400} type="h4">
-                  {item.created.getHours()}:{item.created.getMinutes()}
-                </TextStyle>
-                <TextStyle color={COLORS.TEXT} bold={400} type="h3">
-                  {item.description}
-                </TextStyle>
-              </ContainerInformation>
-            );
-          })}
+          {JSON.parse(localStorage.user).typeUser.name === "Ciudadano" &&
+            notificationCiudadano.map((item, index) => {
+              return (
+                <ContainerInformation key={index}>
+                  <TextStyle color={COLORS.BLUE} bold={900} type="h1">
+                    {item.title}
+                  </TextStyle>
+                  <TextStyle color={COLORS.TEXT} bold={400} type="h4">
+                    {item.created.getHours()}:{item.created.getMinutes()}
+                  </TextStyle>
+                  <TextStyle color={COLORS.TEXT} bold={400} type="h3">
+                    {item.description}
+                  </TextStyle>
+                </ContainerInformation>
+              );
+            })}
+          {JSON.parse(localStorage.user).typeUser.name === "Municipalidad" &&
+            notificationMunicipalidad.map((item, index) => {
+              return (
+                <ContainerInformation key={index}>
+                  <TextStyle color={COLORS.BLUE} bold={900} type="h1">
+                    {item.title}
+                  </TextStyle>
+                  <TextStyle color={COLORS.TEXT} bold={400} type="h4">
+                    {item.created.getHours()}:{item.created.getMinutes()}
+                  </TextStyle>
+                  <TextStyle color={COLORS.TEXT} bold={400} type="h3">
+                    {item.description}
+                  </TextStyle>
+                </ContainerInformation>
+              );
+            })}
         </div>
       </TabPanel>
       <TabPanel value={value} index={1}>
-        Item Two
-      </TabPanel>
-      <TabPanel value={value} index={2}>
-        Item Three
+        {followerWorks.map((item, index) => {
+          return <BoxWork data={item} />;
+        })}
       </TabPanel>
     </>
   );

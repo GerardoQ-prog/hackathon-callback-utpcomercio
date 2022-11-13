@@ -31,7 +31,7 @@ const InformationProfile = () => {
           <div>
             <Avatar
               style={{ width: "70px", height: "70px", fontSize: "40px" }}
-              {...stringAvatar("Luis Melgarejo")}
+              {...stringAvatar(JSON.parse(localStorage.user).fullName)}
             ></Avatar>
           </div>
           <div>
@@ -54,7 +54,7 @@ const InformationProfile = () => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Avatar
             style={{ width: "70px", height: "70px", fontSize: "40px" }}
-            {...stringAvatar("Luis Melgarejo")}
+            {...stringAvatar(JSON.parse(localStorage.user).fullName)}
           ></Avatar>
         </div>
         <ContainerInfoReport>
@@ -94,7 +94,7 @@ const InformationProfile = () => {
         textAlign="center"
         margin="30px 0px 20px 0px"
       >
-        Luis Melgarejo
+        {JSON.parse(localStorage.user).fullName}
       </TextStyle>
       <TextStyle bold={700} color={COLORS.YELLOW} type="h2" textAlign="center">
         <EmojiEventsIcon style={{ marginBottom: -5 }} /> Defensor local
@@ -106,7 +106,7 @@ const InformationProfile = () => {
         color={COLORS.RED}
         margin="15px 0px"
       >
-        San Juan de Lurigancho
+        {JSON.parse(localStorage.user).district}
       </TextStyle>
       <TabsProfile />
     </Layout>

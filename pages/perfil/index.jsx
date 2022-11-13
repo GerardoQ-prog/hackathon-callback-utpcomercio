@@ -3,6 +3,7 @@ import { COLORS } from "../../assets/styles";
 import Header from "../../components/header";
 import InformationProfile from "../../components/informationProfile";
 import Layout from "../../components/layout";
+import Navigation from "../../components/navigation";
 import TextStyle from "../../components/textStyle";
 
 const Profile = () => {
@@ -21,6 +22,7 @@ const Profile = () => {
         </TextStyle>
       </Layout>
       <InformationProfile />
+      <Navigation />
     </div>
   );
 };

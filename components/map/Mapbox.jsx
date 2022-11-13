@@ -50,9 +50,6 @@ const Mapbox = ({ markers = [] }) => {
 
   return (
     <div style={{ position: "relative" }}>
-      <MapFilters
-        onMapSearch={(feature) => centerLocation(map.current, feature)}
-      />
       <div style={{ width: "99.1vw", height: "90vh" }} ref={mapContainer}></div>
     </div>
   );

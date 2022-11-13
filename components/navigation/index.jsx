@@ -24,13 +24,21 @@ const Navigation = () => {
             setValue(newValue);
           }}
         >
-          <BottomNavigationAction label="Inicio" icon={<RestoreIcon />} />
+          <BottomNavigationAction
+            label="Inicio"
+            onClick={() => router.push("/")}
+            icon={<RestoreIcon />}
+          />
           <BottomNavigationAction
             label="Reporta y Fiscaliza"
             icon={<FavoriteIcon />}
             onClick={() => router.push("/mapa")}
           />
-          <BottomNavigationAction label="Mi Perfil" icon={<LocationOnIcon />} />
+          <BottomNavigationAction
+            label="Mi Perfil"
+            onClick={() => router.push("/perfil")}
+            icon={<LocationOnIcon />}
+          />
         </BottomNavigation>
       </div>
     </Hidden>

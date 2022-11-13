@@ -1,6 +1,9 @@
+import { useRouter } from "next/router";
 import React from "react";
+import { users } from "../../api/login";
 import { COLORS } from "../../assets/styles";
 import { useForm } from "../../hooks/useForm";
+import { authLogin } from "../../services/auth";
 import { ButtonPrimary } from "../button";
 import { InputPassword, InputText } from "../input";
 import TextStyle from "../textStyle";
@@ -11,6 +14,12 @@ const FormLogin = () => {
     email: "",
     password: "",
   });
+
+  const router = useRouter();
+
+  const handleLogin = () => {
+    authLogin(form.email, users, router);
+  };
 
   return (
     <ContainerLogin>
@@ -36,6 +45,7 @@ const FormLogin = () => {
             background={COLORS.RED_2}
             color={COLORS.WHITE}
             size="18px"
+            onClick={handleLogin}
           >
             Ingresar
           </ButtonPrimary>
