@@ -2,31 +2,39 @@
 
 import React, { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
-import { addGeolocateToMap, addMarkersToMap, centerMap, defaultCenter, geoOptions, popupOptions } from "./actions"
+import { addGeolocateToMap, addMarkersToMap, centerMap, position, geoOptions, popupOptions } from "./actions"
+import { useRouter } from "next/router";
 
 const Mapbox = ({ markers = [] }) => {
+
+  const router = useRouter()
 
   const mapContainer = useRef(null)
   const map = useRef(null)
   
   useEffect(() => {
-    if(map.current) return
+    if(map.current) {
+      console.log(map.current.getZoom());
+      // map.current.flyTo({ zoom: 12, speed: 0.5, })
+      return
+    }
     mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_GL_ACCESS_TOKEN ?? '';
     
     const geolocate = new mapboxgl.GeolocateControl(geoOptions)
     const popup = new mapboxgl.Popup(popupOptions);
 
     map.current =  new mapboxgl.Map ({ 
+      attributionControl: false,
       container : mapContainer.current, 
       style :  'mapbox://styles/mapbox/dark-v10', 
       projection: 'globe',
-      center :  [15.4542,  18.7322],  // centro del mapa Chad 
-      zoom :  1.8
+      center :  position.coords,  // centro del mapa Chad 
+      zoom :  position.zoom
     })
 
     map.current.on("load", () => {
       addGeolocateToMap(map.current, geolocate)
-      addMarkersToMap(markers, map.current, popup)
+      addMarkersToMap(markers, map.current, popup, router)
       centerMap(map.current, geolocate)
     })
 

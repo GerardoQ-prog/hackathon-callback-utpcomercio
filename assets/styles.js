@@ -16,3 +16,7 @@ export const SIZES = {
   MOBILE: "(max-width: 480px)",
   MOBILE_SMALL: "(max-width: 360px)",
 };
+
+export const COMPONENT_SIZES = {
+  MAP_FILTERS: "60px"
+}
