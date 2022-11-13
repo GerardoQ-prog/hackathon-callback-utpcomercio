@@ -2,7 +2,8 @@
 
 import React, { useEffect, useRef } from "react";
 import mapboxgl from "mapbox-gl";
-import { addGeolocateToMap, addMarkersToMap, centerMap, position, geoOptions, popupOptions } from "./actions"
+import MapFilters from "../mapFilters/MapFilters";
+import { addGeolocateToMap, addMarkersToMap, centerMap, position, geoOptions, popupOptions, centerLocation } from "./actions"
 import { useRouter } from "next/router";
 
 const Mapbox = ({ markers = [] }) => {
@@ -18,6 +19,7 @@ const Mapbox = ({ markers = [] }) => {
       // map.current.flyTo({ zoom: 12, speed: 0.5, })
       return
     }
+    
     mapboxgl.accessToken = process.env.NEXT_PUBLIC_MAPBOX_GL_ACCESS_TOKEN ?? '';
     
     const geolocate = new mapboxgl.GeolocateControl(geoOptions)
@@ -42,6 +44,7 @@ const Mapbox = ({ markers = [] }) => {
 
   return (
     <div>
+      <MapFilters onMapSearch={(feature) => centerLocation(map.current, feature)} />
       <div style={{ width: '100vw', height: '100vh' }} ref={mapContainer}></div>
     </div>
   )

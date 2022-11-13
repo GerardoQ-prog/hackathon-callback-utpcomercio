@@ -106,3 +106,8 @@ export function centerMap (map = {}, geolocate = {}) {
       });
   }, 2000);
 }
+
+export function centerLocation (map = {}, feature = {}) {
+  console.log(map, feature);
+  map.flyTo({ center: feature.center, speed: 0.4 })
+}
