@@ -1,5 +1,9 @@
 import mapboxgl from "mapbox-gl";
 
+export let position = {
+  coords: [15.4542,  18.7322],
+  zoom: 2
+}
 export const defaultCenter = [-77.042793, -12.046374] // Lima
 export const geoOptions = {
   positionOptions: {
@@ -23,8 +27,8 @@ export function addGeolocateToMap (map = {}, geolocate) {
   map.addControl(geolocate, 'bottom-right');
 }
 
-export function addMarkersToMap (markers = [], map = {}, popup = {}) {
-  
+export function addMarkersToMap (markers = [], map = {}, popup = {}, router) {
+
   for (const feature of markers) {
     const el = document.createElement("div");
     el.className = "marker";
@@ -52,13 +56,11 @@ export function addMarkersToMap (markers = [], map = {}, popup = {}) {
 
     divEl.innerHTML = htmlEl
     divEl.addEventListener("click", () => { 
-      alert("redirigiendo: " + JSON.stringify(feature)) 
+      router.push(`/obras/${feature.properties.sku}`)
     })
     const markerPopup = new mapboxgl.Popup({ offset: 25, className: 'popup__site_info' })
       .setDOMContent(divEl);
     marker.setPopup(markerPopup)
-
-    console.log(markerPopup);
     marker.addTo(map);
   }
 
@@ -88,10 +90,14 @@ export function centerMap (map = {}, geolocate = {}) {
   setTimeout(() => map.flyTo({ center: defaultCenter, speed: 0.4 }), 400);
   setTimeout(() => {
     globalThis.navigator.geolocation.getCurrentPosition(
-      () => {
+      (data) => {
         geolocate.trigger()
+        position.coords = [data.coords.longitude, data.coords.latitude]
+        position.zoom = 12
       },
       () => { // on error
+        position.coords = defaultCenter
+        position.zoom = 12
         map.flyTo({
           center: defaultCenter,
           zoom: 12,
