@@ -1,11 +1,13 @@
-
+import Link from "next/link";
 
 const Logo = () => {
   return (
     <>
-      <img height={40} src="https://vipa.io/img/logo.png" alt="" />
+      <Link href={"/"}>
+        <img height={40} src="./img/logo.svg" alt="" />
+      </Link>
     </>
-  )
-}
+  );
+};
 
-export default Logo
+export default Logo;

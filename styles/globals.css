@@ -32,7 +32,7 @@ a {
   height: 50px;
   border-radius: 50%;
   cursor: pointer;
-  z-index: 100001;
+  z-index: 10001;
 }
 
 .obra {
@@ -67,6 +67,7 @@ a {
 .popup__site_info {
   color: #222;
   font-family: 'Montserrat', "Helvetica Neue", Helvetica, sans-serif;
+  z-index: 100009;
 }
 
 .popup__site_info .mapboxgl-popup-content {
@@ -91,7 +92,7 @@ a {
 .popup__site_info .description {
   padding: 4px 8px 10px;
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   gap: 8px;
 }
 
@@ -109,6 +110,16 @@ a {
   color: black;
   font-weight: bold;
   margin: 0;
+}
+
+.popup__site_info .ver {
+  background: #891313  !important;
+  outline: none;
+  border: none;
+  width: 100px !important;
+  border-radius: 5px !important;
+  color: #F7F7F7 !important;
+  font-weight: 700 !important;
 }
 
 .popup__site_info .subtitle {

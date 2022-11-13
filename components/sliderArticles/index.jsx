@@ -4,32 +4,7 @@ import TextStyle from "../textStyle";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper";
 import { ContainerArticle } from "./styled";
-
-const data = [
-  {
-    title:
-      "Lee nuestro reporte mensual de  seguimiento de presupuestos distritales de noviembre.",
-    slug: "/",
-  },
-  {
-    title: "Noticia 2 ",
-    slug: "/",
-  },
-  {
-    title: "Noticia 3",
-    slug: "/",
-  },
-  {
-    title:
-      "Lee nuestro reporte mensual de  seguimiento de presupuestos distritales de noviembre.",
-    slug: "/",
-  },
-  {
-    title:
-      "Lee nuestro reporte mensual de  seguimiento de presupuestos distritales de noviembre.",
-    slug: "/",
-  },
-];
+import { articles } from "../../api/home";
 
 const Article = ({ data }) => {
   return (
@@ -70,7 +45,7 @@ const SliderArticles = () => {
           },
         }}
       >
-        {data.map((item, index) => {
+        {articles.map((item, index) => {
           return (
             <SwiperSlide key={index}>
               <Article data={item} />

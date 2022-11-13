@@ -5,6 +5,9 @@ import styles from "../styles/Home.module.css";
 import { COLORS } from "../assets/styles";
 import Header from "../components/header";
 import SliderArticles from "../components/sliderArticles";
+import BoxWork from "../components/boxWork";
+import HomeWorks from "../components/homeWorks";
+import Navigation from "../components/navigation";
 
 export default function Home() {
   return (
@@ -13,6 +16,8 @@ export default function Home() {
         <Header />
         <SliderArticles />
       </Layout>
+      <HomeWorks />
+      <Navigation />
     </div>
   );
 }

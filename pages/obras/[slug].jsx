@@ -5,11 +5,13 @@ import TextStyle from "../../components/textStyle";
 import TrackingNumbers from "../../components/trackingNumbers";
 import InformationWork from "../../components/informationWork";
 import CommentsWork from "../../components/commentsWork";
+import Header from "../../components/header";
 
 const WorkSlug = () => {
   return (
     <div>
-      <Layout backgorund={COLORS.RED}>
+      <Layout backgorund={COLORS.RED} margin="0px">
+        <Header />
         <TextStyle
           bold={500}
           color={COLORS.WHITE}

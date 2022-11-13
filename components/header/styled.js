@@ -10,11 +10,12 @@ export const ContainerNotification = styled.div`
   justify-content: center;
   padding: 5px;
   border-radius: 10px;
+  cursor: pointer;
 `;
 
 export const ContainerPresentation = styled.div`
   display: flex;
-  padding: 20px;
+  padding: 20px 0px;
   justify-content: space-between;
   align-items: center;
 `;
@@ -32,13 +33,10 @@ export const ContainerLinks = styled.div`
     color: ${COLORS.WHITE};
     font-weight: 700;
   }
-  @media ${SIZES.TABLET} {
-    display: none;
-  }
 `;
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  padding: 0px 20px;
+  /* padding: 0px 20px; */
 `;

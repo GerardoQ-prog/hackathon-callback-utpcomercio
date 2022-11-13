@@ -8,9 +8,9 @@ export const ContainerFooter = styled.div`
   left: 0;
   width: 100%;
   height: ${COMPONENT_SIZES.MAP_FILTERS};
-  padding: 10px 15px;
+  padding: 10px 15px 100px 15px;
   display: flex;
   justify-content: center;
   gap: 10px;
   align-items: center;
-`
+`;

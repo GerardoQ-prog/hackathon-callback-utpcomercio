@@ -4,6 +4,7 @@ import Header from "../../components/header";
 import Layout from "../../components/layout";
 import Mapbox from "../../components/map/Mapbox";
 import MapFooter from "../../components/mapFooter/MapFooter";
+import Navigation from "../../components/navigation";
 
 const markers = [
   {
@@ -68,6 +69,7 @@ const Map = () => {
       </Layout>
       <Mapbox markers={markers} />
       <MapFooter />
+      <Navigation />
     </>
   );
 };

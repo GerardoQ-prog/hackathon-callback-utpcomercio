@@ -6,25 +6,25 @@ import TextStyle from "../textStyle";
 import { COLORS } from "../../assets/styles";
 import { ContainerNumber, ContainerTracking } from "./styled";
 
-const TrackingNumbers = () => {
+const TrackingNumbers = ({ data }) => {
   return (
     <ContainerTracking>
       <ContainerNumber>
         <VisibilityIcon />
         <TextStyle bold={400} color={COLORS.TEXT} type="h4" margin="0px 5px">
-          312
+          {data?.countAlerts}
         </TextStyle>
       </ContainerNumber>
       <ContainerNumber>
         <ReportProblemOutlinedIcon />
         <TextStyle bold={400} color={COLORS.TEXT} type="h4" margin="0px 5px">
-          2
+          {data?.countProblems}
         </TextStyle>
       </ContainerNumber>
       <ContainerNumber>
         <CommentIcon />
         <TextStyle bold={400} color={COLORS.TEXT} type="h4" margin="0px 5px">
-          12
+          {data?.countComments}
         </TextStyle>
       </ContainerNumber>
     </ContainerTracking>

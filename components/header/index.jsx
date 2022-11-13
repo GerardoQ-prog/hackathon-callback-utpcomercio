@@ -11,6 +11,7 @@ import {
   ContainerPresentation,
 } from "./styled";
 import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
+import { Hidden } from "@mui/material";
 
 const Header = () => {
   return (
@@ -19,29 +20,33 @@ const Header = () => {
         <ContainerLogo>
           <Logo />
         </ContainerLogo>
-        <ContainerLinks>
-          <Link href={"/"}>
-            <a>Inicio</a>
-          </Link>
-          <Link href={"/mapa"}>
-            <a>Reporta y Fiscaliza</a>
-          </Link>
-          {/* <Link>
+        <Hidden mdDown>
+          <ContainerLinks>
+            <Link href={"/"}>
+              <a>Inicio</a>
+            </Link>
+            <Link href={"/mapa"}>
+              <a>Reporta y Fiscaliza</a>
+            </Link>
+            {/* <Link>
           <a></a>
         </Link> */}
-        </ContainerLinks>
+          </ContainerLinks>
+        </Hidden>
       </Container>
       <ContainerPresentation>
         <TextStyle bold={400} color={COLORS.WHITE} type="h1">
           Hola , <br></br>
           <b>Gerardo</b>
         </TextStyle>
-        <ContainerNotification>
-          <NotificationsActiveIcon
-            style={{ marginRight: 10, marginBottom: -5 }}
-          />
-          2
-        </ContainerNotification>
+        <Link href={"/perfil"}>
+          <ContainerNotification>
+            <NotificationsActiveIcon
+              style={{ marginRight: 10, marginBottom: -5 }}
+            />
+            2
+          </ContainerNotification>
+        </Link>
       </ContainerPresentation>
     </>
   );

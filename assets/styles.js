@@ -7,6 +7,7 @@ export const COLORS = {
   TEXT: "#231F20",
   YELLOW: "#fec001",
   PINK: "#F9F3F3",
+  GREY: "#ABB4BD",
 };
 
 export const SIZES = {

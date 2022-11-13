@@ -5,7 +5,7 @@ export const ContainerArticle = styled.div`
   background: ${COLORS.WHITE_2};
   display: flex;
   border-radius: 10px;
-  padding: 22px 24px 22px 16px;
+  padding: 20px 0px;
   height: 100px;
   margin: 0px 20px;
   align-items: center;
