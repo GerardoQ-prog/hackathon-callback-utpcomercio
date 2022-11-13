@@ -36,6 +36,7 @@ export const SidebarContainer = styled.div`
   z-index: 10;
   transition: all ease-in-out .25s;
   padding: 15px;
+  color: ${COLORS.TEXT};
   &.open {
     right: 0;
   }
