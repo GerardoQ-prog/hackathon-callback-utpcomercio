@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLORS } from "../../assets/styles";
+import { COLORS, SIZES } from "../../assets/styles";
 
 export const ContainerNotification = styled.div`
   background: ${COLORS.WHITE_2};
@@ -32,9 +32,13 @@ export const ContainerLinks = styled.div`
     color: ${COLORS.WHITE};
     font-weight: 700;
   }
+  @media ${SIZES.TABLET} {
+    display: none;
+  }
 `;
 
 export const Container = styled.div`
   display: flex;
   align-items: center;
+  padding: 0px 20px;
 `;
