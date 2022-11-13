@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COMPONENT_SIZES, SIZES } from "../../assets/styles";
+import { COMPONENT_SIZES } from "../../assets/styles";
 import { COLORS } from "../../assets/styles";
 
 export const ContainerFilters = styled.div`
