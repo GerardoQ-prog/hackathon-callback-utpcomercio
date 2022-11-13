@@ -1,9 +1,11 @@
-
+import AdminLayout from "../../layouts/AdminLayout"
 
 const AdminPage = () => {
   return (
     <>
-      holaaa
+      <AdminLayout>
+        inicio
+      </AdminLayout>
     </>
   )
 }

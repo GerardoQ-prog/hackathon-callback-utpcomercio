@@ -18,9 +18,9 @@ const AdminLayout = ({ children }) => {
           </div>
         </div>
         <div className="sidebar__links">
-          <Link href={"/admin/perfil"}>
-            <a className={router.pathname == "/admin/perfil" ? "sidebar__link active" : "sidebar__link"}>
-              Peticiones
+          <Link href={"/admin"}>
+            <a className={router.pathname == "/admin" ? "sidebar__link active" : "sidebar__link"}>
+              Inicio
             </a>
           </Link>
         </div>
