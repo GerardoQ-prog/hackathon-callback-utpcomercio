@@ -31,7 +31,7 @@ export function addMarkersToMap (markers = [], map = {}, popup = {}, router) {
 
   for (const feature of markers) {
     const el = document.createElement("div");
-    el.className = "marker";
+    el.className = feature.properties.type || "marker";
     el.setAttribute("title", feature.properties.title)
     const marker = new mapboxgl.Marker(el).setLngLat(
       feature.geometry.coordinates
@@ -105,4 +105,9 @@ export function centerMap (map = {}, geolocate = {}) {
         });
       });
   }, 2000);
+}
+
+export function centerLocation (map = {}, feature = {}) {
+  console.log(map, feature);
+  map.flyTo({ center: feature.center, speed: 0.4 })
 }
