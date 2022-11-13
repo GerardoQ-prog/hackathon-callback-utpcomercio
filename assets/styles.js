@@ -1,9 +1,11 @@
 export const COLORS = {
-  BLUE: "#292F47",
-  RED: "#EA3236",
+  BLUE: "#1C1C1C",
+  RED: "#B72727",
+  RED_2: "#891313",
   WHITE: "#FFFFFF",
-  TEXT: "#736D6D",
+  TEXT: "#231F20",
   YELLOW: "#fec001",
+  PINK: "#F9F3F3",
 };
 
 export const SIZES = {
