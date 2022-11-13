@@ -140,3 +140,93 @@ a {
 .swiper-button-disabled{
   display: none !important;
 }
+
+/* ADMIN */
+.admin__layout {
+  display: grid;
+  width: 100%;
+  height: 100vh;
+  grid-template-columns: 250px 1fr;
+  background: white;
+  color: #222;
+  --header-height: 55px;
+  --sidebar-bg: white;
+  --sidebar-link: #23315c;
+  --sidebar-link-bg: white;
+  --sidebar-link-active: white;
+  --sidebar-link-bg-active: #23315c;
+}
+
+.sidebar {
+  width: 100%;
+  height: 100%;
+  padding: 20px 10px;
+}
+
+.appbar {
+  position: sticky;
+  width: 100%;
+  background: #fafafa;
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+.wrapper__content {
+  max-height: 100vh;
+  overflow-y: auto;
+  background: #eee;
+}
+
+.wrapper__content .container {
+  padding: 15px;
+}
+
+.card__content {
+  border-radius: 8px;
+  background: white;
+  min-height: calc(100vh - 30px - var(--header-height));
+  padding: 10px;
+}
+
+.avatar__container {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar__container .avatar__images {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.avatar__container .user__name {
+  font-size: 13px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.sidebar__links {
+  padding: 15px 0;
+}
+
+.sidebar__link {
+  background: var(--sidebar-link-bg);
+  color: var(--sidebar-link);
+  font-size: 14px;
+  padding: 8px 18px;
+  border-radius: 8px;
+  width: 100%;
+  display: block;
+  box-shadow: 1px 1px 5px rgba(0,0,0,.08);
+  transition: all ease-in-out .25s;
+  margin-bottom: 4px;
+}
+
+.sidebar__link.active {
+  background: var(--sidebar-link-bg-active);
+  color: var(--sidebar-link-active);
+}

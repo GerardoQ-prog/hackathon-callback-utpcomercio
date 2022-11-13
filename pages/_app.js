@@ -1,9 +1,11 @@
 import { createGlobalStyle } from "styled-components";
+import { AuthProvider } from "../context/JWTAuthContext"; 
 import "../styles/globals.css";
 import "mapbox-gl/dist/mapbox-gl.css";
 import CssBaseline from "@mui/material/CssBaseline";
 import { useEffect } from "react";
-import * as uuid from "uuid";
+import '../fake-db/index';
+import * as uuid from "uuid"
 
 import "swiper/css";
 import "swiper/css/navigation";
@@ -28,7 +30,6 @@ a {
 
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
-    console.log(uuid);
     globalThis.localStorage.setItem("session_id", uuid.v4());
   }, []);
 
@@ -36,7 +37,9 @@ function MyApp({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <CssBaseline />
-      <Component {...pageProps} />
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
     </>
   );
 }
