@@ -18,7 +18,7 @@ export const BPrimary = styled.button`
   margin: 10px 0px;
   cursor: pointer;
   transition: all 0.5s ease;
-  font-family: "Inter";
+  font-family: "Montserrat";
   &:disabled {
     background: grey;
     color: ${COLORS.WHITE};
@@ -41,7 +41,7 @@ export const BSecondary = styled.button`
   margin: 10px 0px;
   cursor: pointer;
   background: transparent;
-  font-family: "Inter";
+  font-family: "Montserrat";
   &:disabled {
     border: ${(props) => `1px solid  ${COLORS.TEXT}`};
   }

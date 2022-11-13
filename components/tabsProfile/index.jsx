@@ -54,7 +54,7 @@ const TabsProfile = () => {
       fontWeight: theme.typography.fontWeightRegular,
       marginRight: theme.spacing(1),
       color: "rgba(0, 0, 0, 0.85)",
-      fontFamily: "Inter",
+      fontFamily: "Montserrat",
       "&:hover": {
         color: COLORS.RED,
         opacity: 1,

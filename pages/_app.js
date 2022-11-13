@@ -7,10 +7,14 @@ import { useEffect } from "react";
 import '../fake-db/index';
 import * as uuid from "uuid"
 
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+
 const GlobalStyle = createGlobalStyle`
 
 body,html {
-  font-family: 'Inter', sans-serif !important;
+  font-family: 'Montserrat', sans-serif !important;
   scroll-behavior: smooth;
   padding: 0;
   margin: 0;
@@ -24,13 +28,10 @@ a {
 }
 `;
 
-
 function MyApp({ Component, pageProps }) {
-  
   useEffect(() => {
-    console.log(uuid);
-    globalThis.localStorage.setItem("session_id", uuid.v4())
-  }, [])
+    globalThis.localStorage.setItem("session_id", uuid.v4());
+  }, []);
 
   return (
     <>

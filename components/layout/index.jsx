@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, ContainerLayout } from "./styled";
 
-const Layout = ({ children, backgorund }) => {
+const Layout = ({ children, backgorund, margin }) => {
   return (
-    <Container backgorund={backgorund}>
+    <Container backgorund={backgorund} margin={margin}>
       <ContainerLayout>{children}</ContainerLayout>
     </Container>
   );
