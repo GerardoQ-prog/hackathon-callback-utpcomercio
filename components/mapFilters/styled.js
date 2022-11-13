@@ -1,5 +1,6 @@
 import styled from "styled-components";
-import { COMPONENT_SIZES } from "../../assets/styles";
+import { COMPONENT_SIZES, SIZES } from "../../assets/styles";
+import { COLORS } from "../../assets/styles";
 
 export const ContainerFilters = styled.div`
   position: fixed;
@@ -18,8 +19,37 @@ export const ContainerFilters = styled.div`
 
 export const ContainerSearch = styled.div`
   max-width: 500px;
+  margin-bottom: 10px;
 `
 
 export const ContainerFilter = styled.div`
   
+`
+
+export const SidebarContainer = styled.div`
+  position: fixed;
+  top: ${COMPONENT_SIZES.MAP_FILTERS};
+  right: -100%;
+  height: calc(100vh - ${COMPONENT_SIZES.MAP_FILTERS});
+  background: ${COLORS.WHITE};
+  width: 350px;
+  z-index: 10;
+  transition: all ease-in-out .25s;
+  padding: 15px;
+  &.open {
+    right: 0;
+  }
+
+  label, span.MuiTypography-root {
+    color: ${COLORS.TEXT} !important;
+    font-size: 13px;
+    line-height: 1;
+  }
+  .MuiInputBase-input  {
+    padding: 0 !important;
+  }
+  .MuiRadio-root {
+    padding-top: 2px !important;
+    padding-bottom: 2px !important;
+  }
 `
