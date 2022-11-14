@@ -9,44 +9,56 @@ import { COLORS } from "../../assets/styles";
 import TabsProfile from "../tabsProfile";
 import EmojiEventsIcon from "@mui/icons-material/EmojiEvents";
 import { Avatar, Hidden } from "@mui/material";
+import { parseCookies } from "nookies";
 
 const InformationProfile = () => {
+  const cookies = parseCookies();
+  const user = cookies.user ? JSON.parse(cookies.user) : null;
+
   return (
     <Layout>
       <Hidden mdDown>
         <ContainerInfoReport>
           <div>
-            <TextStyle
-              bold={900}
-              size="40px"
-              sizeMobile="20px"
-              textAlign="center"
-            >
-              50
-            </TextStyle>
-            <TextStyle bold={400} type="h3">
-              <VisibilityIcon style={{ marginBottom: -8 }} /> obras seguidas
-            </TextStyle>
+            {user && user?.typeUser.name === "Ciudadano" && (
+              <>
+                <TextStyle
+                  bold={900}
+                  size="40px"
+                  sizeMobile="20px"
+                  textAlign="center"
+                >
+                  50
+                </TextStyle>
+                <TextStyle bold={400} type="h3">
+                  <VisibilityIcon style={{ marginBottom: -8 }} /> obras seguidas
+                </TextStyle>
+              </>
+            )}
           </div>
           <div>
             <Avatar
               style={{ width: "70px", height: "70px", fontSize: "40px" }}
-              {...stringAvatar(JSON.parse(localStorage.user).fullName)}
+              {...stringAvatar(user?.fullName || "Usuario")}
             ></Avatar>
           </div>
           <div>
-            <TextStyle
-              bold={900}
-              size="40px"
-              sizeMobile="20px"
-              textAlign="center"
-            >
-              10
-            </TextStyle>
-            <TextStyle bold={400} type="h3">
-              <ReportProblemOutlinedIcon style={{ marginBottom: -8 }} /> obras
-              reportadas
-            </TextStyle>
+            {user && user?.typeUser.name === "Ciudadano" && (
+              <>
+                <TextStyle
+                  bold={900}
+                  size="40px"
+                  sizeMobile="20px"
+                  textAlign="center"
+                >
+                  10
+                </TextStyle>
+                <TextStyle bold={400} type="h3">
+                  <ReportProblemOutlinedIcon style={{ marginBottom: -8 }} />{" "}
+                  obras reportadas
+                </TextStyle>
+              </>
+            )}
           </div>
         </ContainerInfoReport>
       </Hidden>
@@ -54,36 +66,44 @@ const InformationProfile = () => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Avatar
             style={{ width: "70px", height: "70px", fontSize: "40px" }}
-            {...stringAvatar(JSON.parse(localStorage.user).fullName)}
+            {...stringAvatar(user?.fullName || "Usuario")}
           ></Avatar>
         </div>
         <ContainerInfoReport>
           <div>
-            <TextStyle
-              bold={900}
-              size="40px"
-              sizeMobile="20px"
-              textAlign="center"
-            >
-              50
-            </TextStyle>
-            <TextStyle bold={400} type="h3">
-              <VisibilityIcon style={{ marginBottom: -8 }} /> obras seguidas
-            </TextStyle>
+            {user && user?.typeUser.name === "Ciudadano" && (
+              <>
+                <TextStyle
+                  bold={900}
+                  size="40px"
+                  sizeMobile="20px"
+                  textAlign="center"
+                >
+                  50
+                </TextStyle>
+                <TextStyle bold={400} type="h3">
+                  <VisibilityIcon style={{ marginBottom: -8 }} /> obras seguidas
+                </TextStyle>
+              </>
+            )}
           </div>
           <div>
-            <TextStyle
-              bold={900}
-              size="40px"
-              sizeMobile="20px"
-              textAlign="center"
-            >
-              10
-            </TextStyle>
-            <TextStyle bold={400} type="h3">
-              <ReportProblemOutlinedIcon style={{ marginBottom: -8 }} /> obras
-              reportadas
-            </TextStyle>
+            {user && user?.typeUser.name === "Ciudadano" && (
+              <>
+                <TextStyle
+                  bold={900}
+                  size="40px"
+                  sizeMobile="20px"
+                  textAlign="center"
+                >
+                  10
+                </TextStyle>
+                <TextStyle bold={400} type="h3">
+                  <ReportProblemOutlinedIcon style={{ marginBottom: -8 }} />{" "}
+                  obras reportadas
+                </TextStyle>
+              </>
+            )}
           </div>
         </ContainerInfoReport>
       </Hidden>
@@ -94,11 +114,18 @@ const InformationProfile = () => {
         textAlign="center"
         margin="30px 0px 20px 0px"
       >
-        {JSON.parse(localStorage.user).fullName}
+        {user?.fullName || "Usuario"}
       </TextStyle>
-      <TextStyle bold={700} color={COLORS.YELLOW} type="h2" textAlign="center">
-        <EmojiEventsIcon style={{ marginBottom: -5 }} /> Defensor local
-      </TextStyle>
+      {user && user?.typeUser.name === "Ciudadano" && (
+        <TextStyle
+          bold={700}
+          color={COLORS.YELLOW}
+          type="h2"
+          textAlign="center"
+        >
+          <EmojiEventsIcon style={{ marginBottom: -5 }} /> Defensor local
+        </TextStyle>
+      )}
       <TextStyle
         bold={900}
         type="h2"
@@ -106,7 +133,7 @@ const InformationProfile = () => {
         color={COLORS.RED}
         margin="15px 0px"
       >
-        {JSON.parse(localStorage.user).district}
+        {user?.district || ""}
       </TextStyle>
       <TabsProfile />
     </Layout>

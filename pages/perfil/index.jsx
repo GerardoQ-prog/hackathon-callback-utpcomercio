@@ -1,3 +1,4 @@
+import Head from "next/head";
 import React from "react";
 import { COLORS } from "../../assets/styles";
 import Header from "../../components/header";
@@ -9,6 +10,10 @@ import TextStyle from "../../components/textStyle";
 const Profile = () => {
   return (
     <div>
+      <Head>
+        <title>Mi Perfil</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <Layout backgorund={COLORS.RED} margin="0px">
         <Header />
         <TextStyle

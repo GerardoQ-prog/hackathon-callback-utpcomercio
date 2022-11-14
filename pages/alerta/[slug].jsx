@@ -2,18 +2,15 @@ import React from "react";
 import { COLORS } from "../../assets/styles";
 import Layout from "../../components/layout";
 import TextStyle from "../../components/textStyle";
-import TrackingNumbers from "../../components/trackingNumbers";
-import InformationWork from "../../components/informationWork";
-import CommentsWork from "../../components/commentsWork";
 import Header from "../../components/header";
-import { getBuildingId } from "../../services/map";
+import { getAlertId } from "../../services/map";
 import Head from "next/head";
 
-const WorkSlug = ({ infoWork }) => {
+const ProblemSlug = ({ infoAlert }) => {
   return (
     <div>
       <Head>
-        <title>{infoWork?.name}</title>
+        <title>{infoAlert?.description}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
       <Layout backgorund={COLORS.RED} margin="0px">
@@ -25,28 +22,25 @@ const WorkSlug = ({ infoWork }) => {
           sizeMobile="30px"
           margin="10px 0px"
         >
-          OBRAS
+          ALERTAS
         </TextStyle>
       </Layout>
       <Layout>
-        <TextStyle bold={500} color={COLORS.RED} type="h3" margin="10px 0px">
-          {infoWork?.user?.fullName}
-        </TextStyle>
         <TextStyle bold={700} color={COLORS.BLUE} size="30px" sizeMobile="22px">
-          {infoWork?.name}
+          {infoAlert?.description}
         </TextStyle>
-        <TrackingNumbers
+        {/* <TrackingNumbers
           data={{
             countAlerts: infoWork?.countAlerts,
             countProblems: infoWork?.countProblems,
             countComments: infoWork?.comments?.length,
           }}
-        />
-        {infoWork?.images.map((item, index) => {
+        /> */}
+        {infoAlert?.files.map((item, index) => {
           return <img width="100%" src={item} key={index} />;
         })}
-        <InformationWork infoWork={infoWork} />
-        <CommentsWork infoWork={infoWork} />
+        {/* <InformationWork infoWork={infoWork} />
+        <CommentsWork infoWork={infoWork} /> */}
       </Layout>
     </div>
   );
@@ -54,13 +48,13 @@ const WorkSlug = ({ infoWork }) => {
 
 export async function getServerSideProps({ params }) {
   const { slug } = params;
-  const response = await getBuildingId(slug);
+  const response = await getAlertId(slug);
 
   return {
     props: {
-      infoWork: response.data,
+      infoAlert: response.data,
     },
   };
 }
 
-export default WorkSlug;
+export default ProblemSlug;

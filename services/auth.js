@@ -1,6 +1,11 @@
+import { parseCookies, setCookie, destroyCookie } from "nookies";
+
 export const authLogin = (email, listUsers, router) => {
   const userSelect = listUsers.find((item) => item.email === email);
-  localStorage.setItem("user", JSON.stringify(userSelect));
+  setCookie(null, "user", JSON.stringify(userSelect), {
+    maxAge: 30 * 24 * 60 * 60,
+    path: "/",
+  });
   if (userSelect.typeUser.name === "Ciudadano") {
     router.push("/");
   }
@@ -10,6 +15,6 @@ export const authLogin = (email, listUsers, router) => {
 };
 
 export const authLogout = (router) => {
-  localStorage.removeItem("user");
+  destroyCookie(null, "user");
   router.push("/");
 };

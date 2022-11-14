@@ -1,7 +1,6 @@
 import React from "react";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import VisibilityIcon from "@mui/icons-material/Visibility";
-import AccessibilityIcon from "@mui/icons-material/Accessibility";
 import { COLORS } from "../../assets/styles";
 import TextStyle from "../textStyle";
 import { ContainerInformation } from "./styled";
@@ -12,6 +11,8 @@ import {
   notificationMunicipalidad,
 } from "../../api/profile";
 import BoxWork from "../boxWork";
+import { fullDate } from "../../helpers/date";
+import { parseCookies } from "nookies";
 
 function TabPanel(props) {
   const { children, value, index, ...other } = props;
@@ -75,14 +76,8 @@ const TabsProfile = () => {
     })
   );
 
-  const notification = [
-    {
-      title: "Retraso de obra",
-      description:
-        "Creacion de algo para la nueva empresa demorara no se cuanto",
-      created: new Date(),
-    },
-  ];
+  const cookies = parseCookies();
+  const user = cookies.user ? JSON.parse(cookies.user) : null;
 
   return (
     <>
@@ -94,11 +89,18 @@ const TabsProfile = () => {
         aria-label="scrollable auto tabs example"
       >
         <AntTab label="Notificaciones" icon={<NotificationsIcon />} />
-        <AntTab label="Obras seguidas" icon={<VisibilityIcon />} />
+        <AntTab
+          label={
+            user?.typeUser.name === "Municipalidad"
+              ? "Obras registradas"
+              : "Obras seguidas"
+          }
+          icon={<VisibilityIcon />}
+        />
       </AntTabs>
       <TabPanel value={value} index={0}>
         <div>
-          {JSON.parse(localStorage.user).typeUser.name === "Ciudadano" &&
+          {user?.typeUser.name === "Ciudadano" &&
             notificationCiudadano.map((item, index) => {
               return (
                 <ContainerInformation key={index}>
@@ -106,7 +108,7 @@ const TabsProfile = () => {
                     {item.title}
                   </TextStyle>
                   <TextStyle color={COLORS.TEXT} bold={400} type="h4">
-                    {item.created.getHours()}:{item.created.getMinutes()}
+                    {fullDate(item.created)}
                   </TextStyle>
                   <TextStyle color={COLORS.TEXT} bold={400} type="h3">
                     {item.description}
@@ -114,7 +116,7 @@ const TabsProfile = () => {
                 </ContainerInformation>
               );
             })}
-          {JSON.parse(localStorage.user).typeUser.name === "Municipalidad" &&
+          {user?.typeUser.name === "Municipalidad" &&
             notificationMunicipalidad.map((item, index) => {
               return (
                 <ContainerInformation key={index}>
@@ -122,7 +124,7 @@ const TabsProfile = () => {
                     {item.title}
                   </TextStyle>
                   <TextStyle color={COLORS.TEXT} bold={400} type="h4">
-                    {item.created.getHours()}:{item.created.getMinutes()}
+                    {fullDate(item.created)}
                   </TextStyle>
                   <TextStyle color={COLORS.TEXT} bold={400} type="h3">
                     {item.description}
@@ -134,7 +136,7 @@ const TabsProfile = () => {
       </TabPanel>
       <TabPanel value={value} index={1}>
         {followerWorks.map((item, index) => {
-          return <BoxWork data={item} />;
+          return <BoxWork data={item} key={index} />;
         })}
       </TabPanel>
     </>

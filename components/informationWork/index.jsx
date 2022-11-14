@@ -14,7 +14,7 @@ import {
   TwitterIcon,
 } from "next-share";
 
-const InformationWork = () => {
+const InformationWork = ({ infoWork }) => {
   return (
     <div>
       <Title background={COLORS.RED} color={COLORS.WHITE}>
@@ -60,7 +60,7 @@ const InformationWork = () => {
             Estado:
           </TextStyle>
           <TextStyle bold={400} type="h3">
-            En ejecución
+            {infoWork?.status.status}
           </TextStyle>
         </div>
         <div style={{ width: 150 }}>
@@ -68,7 +68,7 @@ const InformationWork = () => {
             Presupuesto:
           </TextStyle>
           <TextStyle bold={400} type="h3">
-            $368.000.000
+            ${infoWork?.budget}
           </TextStyle>
         </div>
       </ContainerResumen>
@@ -78,7 +78,7 @@ const InformationWork = () => {
             Inicio:
           </TextStyle>
           <TextStyle bold={400} type="h3">
-            01/11/2022
+            {infoWork?.startDate}
           </TextStyle>
         </div>
         <div style={{ width: 150 }}>
@@ -86,72 +86,38 @@ const InformationWork = () => {
             Fin:
           </TextStyle>
           <TextStyle bold={400} type="h3">
-            01/11/2023
+            2023-11-01
           </TextStyle>
         </div>
       </ContainerResumen>
       <TextStyle bold={700} type="h3">
         Fuentes de información:
       </TextStyle>
-      <ContainerLink>
-        <Link href="https://facebook.com">
-          <a
-            target="_blank"
-            style={{
-              color: COLORS.BLUE,
-              textDecoration: "underline",
-            }}
-          >
-            MEF: Sistema de seguimiento de inversiones{" "}
-          </a>
-        </Link>
-        <LaunchIcon style={{ fontSize: 14, marginBottom: -3 }} />
-      </ContainerLink>
-      <ContainerLink>
-        <Link href="https://facebook.com">
-          <a
-            target="_blank"
-            style={{
-              color: COLORS.BLUE,
-              textDecoration: "underline",
-            }}
-          >
-            MEF: Sistema de seguimiento de inversiones{" "}
-          </a>
-        </Link>
-        <LaunchIcon style={{ fontSize: 14, marginBottom: -3 }} />
-      </ContainerLink>{" "}
-      <ContainerLink>
-        <Link href="https://facebook.com">
-          <a
-            target="_blank"
-            style={{
-              color: COLORS.BLUE,
-              textDecoration: "underline",
-            }}
-          >
-            MEF: Sistema de seguimiento de inversiones{" "}
-          </a>
-        </Link>
-        <LaunchIcon style={{ fontSize: 14, marginBottom: -3 }} />
-      </ContainerLink>
+      {infoWork.externalLinks &&
+        infoWork.externalLinks.map((item, index) => {
+          return (
+            <ContainerLink key={index}>
+              <Link href={item.link}>
+                <a
+                  target="_blank"
+                  style={{
+                    color: COLORS.BLUE,
+                    textDecoration: "underline",
+                  }}
+                >
+                  {item.name}
+                </a>
+              </Link>
+              <LaunchIcon style={{ fontSize: 14, marginBottom: -3 }} />
+            </ContainerLink>
+          );
+        })}
       <TextStyle bold={700} type="h3" margin="20px 0px 10px 0px">
-        Normativa Legal:
+        Descripción:
       </TextStyle>
-      <ContainerLink>
-        <Link href="https://facebook.com">
-          <a
-            target="_blank"
-            style={{
-              color: COLORS.BLUE,
-              textDecoration: "underline",
-            }}
-          >
-            Ley Dota 2
-          </a>
-        </Link>
-        <LaunchIcon style={{ fontSize: 14, marginBottom: -3 }} />
-      </ContainerLink>
+      <TextStyle bold={400} type="h3">
+        {infoWork.description}
+      </TextStyle>
     </div>
   );
 };

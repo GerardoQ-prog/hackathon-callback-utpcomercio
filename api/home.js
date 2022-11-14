@@ -48,3 +48,20 @@ export const articles = [
     slug: "/",
   },
 ];
+
+export const notices = [
+  {
+    text: "“No arreglan las pistas de la Cooperativa Tomas Prado esta así desde el año pasado, hemos mandado solicitudes y no tenemos respuesta.”",
+    user: "Rodrigo Berrios",
+    building: "Creación de parque Ramiro Priale",
+    img: "./img/obra.jpg",
+    created: new Date("2022-11-12 11:20"),
+  },
+  {
+    text: "“Creeria que deberian enrejar el parque, debido a que es un punto de encuentro de delicuentes por la noche.”",
+    user: "Gerardo Quispe",
+    building: "Creación de Parque Umamarca",
+    img: "./img/parque_umamarca.jpg",
+    created: new Date("2022-11-12 18:20"),
+  },
+];

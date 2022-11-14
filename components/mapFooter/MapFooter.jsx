@@ -4,8 +4,11 @@ import { Add as AddIcon } from "@mui/icons-material";
 import { COLORS } from "../../assets/styles";
 import { ButtonPrimary } from "../button";
 import Link from "next/link";
+import { parseCookies } from "nookies";
 
 const MapFooter = () => {
+  const cookies = parseCookies();
+  const user = cookies.user ? JSON.parse(cookies.user) : null;
   return (
     <>
       <ContainerFooter>
@@ -15,7 +18,10 @@ const MapFooter = () => {
             color={COLORS.WHITE}
             width="200px"
           >
-            <AddIcon /> Reportar problema
+            <AddIcon />
+            {user?.typeUser.name === "Ciudadano"
+              ? "Reportar alerta"
+              : "Crear nueva obra"}
           </ButtonPrimary>
         </Link>
       </ContainerFooter>

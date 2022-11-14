@@ -44,7 +44,6 @@ export function addMarkersToMap(markers = [], map = {}, popup = {}, router) {
       <div class="site">
         <div class="description">
           <h2 class="title">${feature.properties.title}</h2>
-          <p class="distrito">${feature.properties.district}</p>
           <button title="Presiona para ver más" class="ver">
             Ver
           </button>
@@ -54,7 +53,11 @@ export function addMarkersToMap(markers = [], map = {}, popup = {}, router) {
 
     divEl.innerHTML = htmlEl;
     divEl.addEventListener("click", () => {
-      router.push(`/obras/${feature.properties.sku}`);
+      router.push(
+        `/${feature.properties.type === "obra" ? "obras" : "alerta"}/${
+          feature.properties.sku
+        }`
+      );
     });
     const markerPopup = new mapboxgl.Popup({
       offset: 25,

@@ -9,6 +9,7 @@ export const users = [
     workFollower: 50,
     workReportes: 10,
     district: "SAN JUAN DE LURIGANCHO",
+    id: "97df3477-0992-4f42-8ece-7d3b03d21177",
   },
   {
     email: "munlima@munlima.com",
@@ -17,5 +18,6 @@ export const users = [
       code: 2,
     },
     fullName: "Municipalidad Metropolitana de Lima",
+    id: "537387df-0ff7-4a39-bafa-b8c85af7f36d",
   },
 ];

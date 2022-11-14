@@ -4,6 +4,7 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  scroll-behavior: smooth;
 }
 
 a {
@@ -417,9 +418,10 @@ a {
 
 
 .card__notice {
-  max-width: 350px;
+  max-width: 100%;
   border-radius: 8px;
   overflow: hidden;
+  margin: 30px auto;
 } 
 
 .card__notice .header {
@@ -487,4 +489,15 @@ a {
   .card__notice {
     max-width: 100%;
   }
+}
+
+.location-search-input{
+  width: 100%;
+  padding: 5px 10px;
+  height: 50px;
+  border-radius: 5px;
+  border: 1px solid #231F20;
+  outline: none;
+  font-size: 14px;
+  color:#231F20;
 }

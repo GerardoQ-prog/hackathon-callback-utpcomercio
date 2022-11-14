@@ -7,11 +7,18 @@ import FavoriteIcon from "@mui/icons-material/Favorite";
 import LocationOnIcon from "@mui/icons-material/LocationOn";
 import { useRouter } from "next/router";
 import { Hidden } from "@mui/material";
+import OtherHousesIcon from "@mui/icons-material/OtherHouses";
+import ReportIcon from "@mui/icons-material/Report";
+import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import { parseCookies } from "nookies";
 
 const Navigation = () => {
   const [value, setValue] = React.useState(0);
 
   const router = useRouter();
+
+  const cookies = parseCookies();
+  const user = cookies.user ? JSON.parse(cookies.user) : null;
 
   return (
     <Hidden mdUp>
@@ -20,25 +27,26 @@ const Navigation = () => {
           showLabels
           value={value}
           onChange={(event, newValue) => {
-            console.log("event", event, newValue);
             setValue(newValue);
           }}
         >
           <BottomNavigationAction
             label="Inicio"
             onClick={() => router.push("/")}
-            icon={<RestoreIcon />}
+            icon={<OtherHousesIcon />}
           />
           <BottomNavigationAction
             label="Reporta y Fiscaliza"
-            icon={<FavoriteIcon />}
+            icon={<ReportIcon />}
             onClick={() => router.push("/mapa")}
           />
-          <BottomNavigationAction
-            label="Mi Perfil"
-            onClick={() => router.push("/perfil")}
-            icon={<LocationOnIcon />}
-          />
+          {user && (
+            <BottomNavigationAction
+              label="Mi Perfil"
+              onClick={() => router.push("/perfil")}
+              icon={<AccountBoxIcon />}
+            />
+          )}
         </BottomNavigation>
       </div>
     </Hidden>

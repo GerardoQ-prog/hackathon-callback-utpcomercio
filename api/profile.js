@@ -17,12 +17,12 @@ export const notificationMunicipalidad = [
     title: "Reporte de robo de materiales",
     description:
       "Hemos visto que delincuentes se llevan materiales de la obra cerca a Parque de las Aguas",
-    created: new Date("2022-11-13 14:20"),
+    created: new Date("2022-11-13 11:20"),
   },
   {
     title: "Mucho tiempo de espera por obra",
     description: "Como vecinos nos molesta la demora",
-    created: new Date("2022-11-13 14:20"),
+    created: new Date("2022-11-13 08:13"),
   },
 ];
 
