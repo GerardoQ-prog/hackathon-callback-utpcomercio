@@ -4,10 +4,15 @@ import React from "react";
 import { COLORS } from "../../assets/styles";
 import Header from "../../components/header";
 import Layout from "../../components/layout";
-import Mapbox from "../../components/map/Mapbox";
+// import Mapbox from "../../components/map/Mapbox";
 import MapFooter from "../../components/mapFooter/MapFooter";
 import Navigation from "../../components/navigation";
 import { allDataMap } from "../../services/map";
+import dynamic from "next/dynamic";
+
+const MapNoSSR = dynamic(() => import("../../components/map/Mapbox"), {
+  ssr: false,
+});
 
 const Map = ({ pointsMap }) => {
   const cookies = parseCookies();
@@ -22,7 +27,7 @@ const Map = ({ pointsMap }) => {
       <Layout backgorund={COLORS.RED} margin="0px">
         <Header />
       </Layout>
-      <Mapbox markers={pointsMap} />
+      <MapNoSSR markers={pointsMap} />
       {user && <MapFooter />}
       <Navigation />
     </>

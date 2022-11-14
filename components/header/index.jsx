@@ -14,7 +14,9 @@ import NotificationsActiveIcon from "@mui/icons-material/NotificationsActive";
 import { Hidden } from "@mui/material";
 import { authLogout } from "../../services/auth";
 import { useRouter } from "next/router";
-import { parseCookies, setCookie, destroyCookie } from "nookies";
+import { parseCookies } from "nookies";
+import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import LogoutIcon from "@mui/icons-material/Logout";
 
 const Header = () => {
   const router = useRouter();
@@ -68,6 +70,20 @@ const Header = () => {
               </a>
             )}
           </ContainerLinks>
+        </Hidden>
+        <Hidden mdUp>
+          {!user ? (
+            <Link href="/iniciar-sesion">
+              <AccountCircleIcon
+                style={{ color: COLORS.WHITE }}
+                fontSize="large"
+              />
+            </Link>
+          ) : (
+            <div onClick={() => authLogout(router)}>
+              <LogoutIcon style={{ color: COLORS.WHITE }} fontSize="large" />
+            </div>
+          )}
         </Hidden>
       </Container>
       {user && (
